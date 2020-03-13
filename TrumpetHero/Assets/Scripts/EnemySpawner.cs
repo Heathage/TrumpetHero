@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -18,10 +18,12 @@ public class EnemySpawner : MonoBehaviour
     {
         StartCoroutine(Spawn());
     }
-
     private IEnumerator Spawn()
     {
         yield return new WaitForSecondsRealtime(2);
         note = Random.Range(0, 12);
-        Instantiate(obstacle, obstacleNotes[note].transform.position);
+        Vector3 spawnPos = obstacleNotes[note].transform.position;
+        Debug.Log(spawnPos);
+        //Instantiate(obstacle, spawnPos);
     }
+}
