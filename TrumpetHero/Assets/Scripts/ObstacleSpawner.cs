@@ -22,6 +22,7 @@ public class ObstacleSpawner : MonoBehaviour
         spawnTime = easy;
         StartCoroutine(IncreaseDifficulty());
     }
+
     void Update()
     {
         if(!spawned)
@@ -29,17 +30,20 @@ public class ObstacleSpawner : MonoBehaviour
             StartCoroutine(Spawn());
         }
     }
+
     private IEnumerator Spawn()
     {
         spawned = true;
         yield return new WaitForSecondsRealtime(spawnTime);
         getSpawnPos();
         Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
+
         if(spawnTime == medium)
         {
             getSpawnPos();
             Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
         }
+
         if(spawnTime == hard)
         {
             getSpawnPos();
@@ -47,6 +51,7 @@ public class ObstacleSpawner : MonoBehaviour
             getSpawnPos();
             Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
         }
+
         spawned = false;
     }
 
@@ -63,7 +68,8 @@ public class ObstacleSpawner : MonoBehaviour
         do
         {
             note = Random.Range(0, 13);
-        } while (note == spawnedNote);
+        } 
+        while (note == spawnedNote);
 
         spawnedNote = note;
         spawnPosX = obstacleNotes[note].transform.position.x;

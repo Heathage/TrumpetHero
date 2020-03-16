@@ -6,14 +6,11 @@ public class ObstacleMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]
-    private float speed = -100;
+    private float speed = -10;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        speed = speed * Time.deltaTime;
-    }
-    void Update()
-    {
         rb.velocity = new Vector3(speed, 0, 0);
     }
 }
