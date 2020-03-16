@@ -314,9 +314,15 @@ MonoBehaviour:
   - {fileID: 1643711353}
   - {fileID: 1584896445}
   note: 0
+  spawnedNote: 0
   spawnPosX: 0
   spawnPosY: 0
   spawned: 0
+  spawnTime: 0
+  difficultyTimer: 12
+  easy: 3
+  medium: 2
+  hard: 1
 --- !u!1 &320967419
 GameObject:
   m_ObjectHideFlags: 0
