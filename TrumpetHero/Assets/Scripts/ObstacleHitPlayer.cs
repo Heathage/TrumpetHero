@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleHitPlayer : MonoBehaviour
 {
+    public ScoreCounter alive;
     void OnCollisionEnter2D(Collision2D player)
     {
         Debug.Log("Hit");
