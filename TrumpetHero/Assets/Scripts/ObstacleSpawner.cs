@@ -14,8 +14,8 @@ public class ObstacleSpawner : MonoBehaviour
     public float spawnTime = 0;
     public float difficultyTimer = 12;
     public float easy = 3f;
-    public float medium = 2f;
-    public float hard = 1f;
+    public float medium = 2.5f;
+    public float hard = 2.0f;
 
     void Start()
     {
@@ -35,21 +35,19 @@ public class ObstacleSpawner : MonoBehaviour
     {
         spawned = true;
         yield return new WaitForSecondsRealtime(spawnTime);
-        getSpawnPos();
-        Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
+        if(spawnTime == easy)
+        {
+            spawnEasy();
+        }
 
         if(spawnTime == medium)
         {
-            getSpawnPos();
-            Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
+            spawnMedium();
         }
 
         if(spawnTime == hard)
         {
-            getSpawnPos();
-            Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
-            getSpawnPos();
-            Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
+            spawnHard();
         }
 
         spawned = false;
@@ -74,5 +72,32 @@ public class ObstacleSpawner : MonoBehaviour
         spawnedNote = note;
         spawnPosX = obstacleNotes[note].transform.position.x;
         spawnPosY = obstacleNotes[note].transform.position.y;
+    }
+
+    private void spawnEasy()
+    {
+        for (int i = 1; i <= 4; i++)
+        {
+            getSpawnPos();
+            Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
+        }
+    }
+
+    private void spawnMedium()
+    {
+        for (int i = 1; i <= 6; i++)
+        {
+            getSpawnPos();
+            Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
+        }
+    }
+
+    private void spawnHard()
+    {
+        for (int i = 1; i <= 8; i++)
+        {
+            getSpawnPos();
+            Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
+        }
     }
 }
