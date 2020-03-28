@@ -8,6 +8,7 @@ public class ScoreCounter : MonoBehaviour
     public int score = 0;
 
     public Text currentScore;
+    public Text endScore;
 
     public GameObject player;
 
@@ -31,6 +32,7 @@ public class ScoreCounter : MonoBehaviour
         {
             gameScreen.SetActive(false);
             deathScreen.SetActive(true);
+            endScore.text = score.ToString();
         }
     }
 }
