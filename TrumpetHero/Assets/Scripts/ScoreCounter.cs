@@ -11,6 +11,9 @@ public class ScoreCounter : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject gameScreen;
+    public GameObject deathScreen;
+
     void Start()
     {
         currentScore.text = score.ToString();
@@ -22,6 +25,12 @@ public class ScoreCounter : MonoBehaviour
         {
             score++;
             currentScore.text = score.ToString();
+        }
+
+        else
+        {
+            gameScreen.SetActive(false);
+            deathScreen.SetActive(true);
         }
     }
 }
