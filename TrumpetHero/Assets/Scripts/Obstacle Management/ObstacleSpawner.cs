@@ -13,9 +13,9 @@ public class ObstacleSpawner : MonoBehaviour
     public bool spawned = false;
     public float spawnTime = 0;
     public float difficultyTimer = 12;
-    public float easy = 3f;
-    public float medium = 2.5f;
-    public float hard = 2.0f;
+    private float easy = 3f;
+    private float medium = 2.5f;
+    private float hard = 2.0f;
 
     void Start()
     {
@@ -65,7 +65,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         do
         {
-            note = Random.Range(0, 13);
+            note = Random.Range(0, 6);
         } 
         while (note == spawnedNote);
 
@@ -76,16 +76,13 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void spawnEasy()
     {
-        for (int i = 1; i <= 4; i++)
-        {
             getSpawnPos();
             Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
-        }
     }
 
     private void spawnMedium()
     {
-        for (int i = 1; i <= 6; i++)
+        for (int i = 1; i <= 2; i++)
         {
             getSpawnPos();
             Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
@@ -94,7 +91,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void spawnHard()
     {
-        for (int i = 1; i <= 8; i++)
+        for (int i = 1; i <= 4; i++)
         {
             getSpawnPos();
             Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
