@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject[] notes;
-    public int note = 6;
+    [SerializeField]
+    private int note = 2;
 
     private void Start()
     {
@@ -16,14 +17,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyUp(KeyCode.W))
         {
-            note--;
-            gameObject.transform.position = notes[note].transform.position;
+            if (note >= 1)
+            {
+                note--;
+                gameObject.transform.position = notes[note].transform.position;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.S))
         {
-            note++;
-            gameObject.transform.position = notes[note].transform.position;
+            if (note <= 3)
+            {
+                note++;
+                gameObject.transform.position = notes[note].transform.position;
+            }
         }
     }
 

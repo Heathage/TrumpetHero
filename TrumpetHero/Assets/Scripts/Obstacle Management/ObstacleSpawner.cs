@@ -6,16 +6,29 @@ public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject obstacle;
     public GameObject[] obstacleNotes;
+    [Space]
     public int note;
     public int spawnedNote;
+
+    [Header("Note Position")]
+    [SerializeField]
     public float spawnPosX;
+    [SerializeField]
     public float spawnPosY;
-    public bool spawned = false;
-    public float spawnTime = 0;
-    public float difficultyTimer = 12;
-    private float easy = 3f;
-    private float medium = 2.5f;
-    private float hard = 2.0f;
+    [Space]
+    [SerializeField]
+    private bool spawned = false;
+
+    [Header("Difficulty")]
+    [SerializeField]
+    private float difficultyTimer = 30;
+    private float spawnTime = 0;
+    [SerializeField]
+    private float easy = 2f;
+    [SerializeField]
+    private float medium = 1.7f;
+    [SerializeField]
+    private float hard = 1.4f;
 
     void Start()
     {
@@ -65,7 +78,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         do
         {
-            note = Random.Range(0, 6);
+            note = Random.Range(0, 5);
         } 
         while (note == spawnedNote);
 
@@ -76,13 +89,16 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void spawnEasy()
     {
+        for (int i = 1; i <= 2; i++)
+        {
             getSpawnPos();
             Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
+        }
     }
 
     private void spawnMedium()
     {
-        for (int i = 1; i <= 2; i++)
+        for (int i = 1; i <= 3; i++)
         {
             getSpawnPos();
             Instantiate(obstacle, new Vector3(spawnPosX, spawnPosY), Quaternion.identity);
