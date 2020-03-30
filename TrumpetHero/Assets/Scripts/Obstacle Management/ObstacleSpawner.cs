@@ -6,15 +6,15 @@ public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject obstacle;
     public GameObject[] obstacleNotes;
-    [Space]
-    public int note;
-    public int spawnedNote;
+
+    private int note;
+    private int spawnedNote;
 
     [Header("Note Position")]
     [SerializeField]
-    public float spawnPosX;
+    private float spawnPosX;
     [SerializeField]
-    public float spawnPosY;
+    private float spawnPosY;
     [Space]
     [SerializeField]
     private bool spawned = false;
