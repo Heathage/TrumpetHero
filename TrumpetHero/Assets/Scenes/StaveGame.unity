@@ -297,8 +297,6 @@ MonoBehaviour:
   - {fileID: 1785793884}
   - {fileID: 7539870}
   - {fileID: 1934625741}
-  note: 0
-  spawnedNote: 0
   spawnPosX: 0
   spawnPosY: 0
   spawned: 0
@@ -2038,7 +2036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32785be692891dc45944e2ba3d983357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   currentScore: {fileID: 827634018}
   endScore: {fileID: 1505733470}
   player: {fileID: 1930128975}
@@ -2474,5 +2471,35 @@ PrefabInstance:
       propertyPath: note
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5545211650626366637, guid: e3772ef6a9bb48041af8007142589fbe,
+        type: 3}
+      propertyPath: notes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5545211650626366637, guid: e3772ef6a9bb48041af8007142589fbe,
+        type: 3}
+      propertyPath: notes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1476808361}
+    - target: {fileID: 5545211650626366637, guid: e3772ef6a9bb48041af8007142589fbe,
+        type: 3}
+      propertyPath: notes.Array.data[1]
+      value: 
+      objectReference: {fileID: 39780977}
+    - target: {fileID: 5545211650626366637, guid: e3772ef6a9bb48041af8007142589fbe,
+        type: 3}
+      propertyPath: notes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1322215192}
+    - target: {fileID: 5545211650626366637, guid: e3772ef6a9bb48041af8007142589fbe,
+        type: 3}
+      propertyPath: notes.Array.data[3]
+      value: 
+      objectReference: {fileID: 1686613002}
+    - target: {fileID: 5545211650626366637, guid: e3772ef6a9bb48041af8007142589fbe,
+        type: 3}
+      propertyPath: notes.Array.data[4]
+      value: 
+      objectReference: {fileID: 1319048518}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3772ef6a9bb48041af8007142589fbe, type: 3}
