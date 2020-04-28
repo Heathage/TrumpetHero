@@ -2,6 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// -----------------------------------------------------------------------------------------------------------
+// <copyright file="ObstacleSpawner.cs">
+// MIT Licence Copyright (c) 2020.
+// </copyright>
+// <author>James Mead Heath</author>
+// <summary>
+// Responsible for spawning the obstacles that will fly towards the player
+// Uses an array to note spawn positions
+// Has three different difficulty states, switching from one to another after a set time
+// </summary>
+// -----------------------------------------------------------------------------------------------------------
+
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject obstacle;
@@ -30,6 +42,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField]
     private float hard = 1.4f;
 
+    //Starts the difficulty increase timers
     void Start()
     {
         spawnTime = easy;
@@ -44,6 +57,7 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
+    //Spawns a number of obstacles at a set time dependant on the difficulty
     private IEnumerator Spawn()
     {
         spawned = true;
@@ -66,6 +80,7 @@ public class ObstacleSpawner : MonoBehaviour
         spawned = false;
     }
 
+    //Increases the difficulty after an alloted time, twice
     private IEnumerator IncreaseDifficulty()
     {
         yield return new WaitForSecondsRealtime(difficultyTimer);
@@ -74,12 +89,14 @@ public class ObstacleSpawner : MonoBehaviour
         spawnTime = hard;
     }
 
+    //Gets a random number between 0 and 5, applying one of six spawn positions for an obstacle 
     private void getSpawnPos()
     {
         do
         {
             note = Random.Range(0, 5);
         } 
+        //To try and avoid spawning obstacles in the same position
         while (note == spawnedNote);
 
         spawnedNote = note;
@@ -87,6 +104,7 @@ public class ObstacleSpawner : MonoBehaviour
         spawnPosY = obstacleNotes[note].transform.position.y;
     }
 
+    //Easy difficulty - to repeat get spawn position method twice. Spawning the obstacles. 
     private void spawnEasy()
     {
         for (int i = 1; i <= 2; i++)
@@ -96,6 +114,7 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
+    //Medium difficulty - to repeat get spawn position method three times. Spawning the obstacles.
     private void spawnMedium()
     {
         for (int i = 1; i <= 3; i++)
@@ -105,6 +124,7 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
+    //Hard difficulty - to repeat get spawn position method four times. Spawning the obstacles.
     private void spawnHard()
     {
         for (int i = 1; i <= 4; i++)
